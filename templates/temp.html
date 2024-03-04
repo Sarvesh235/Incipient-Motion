@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+  
+</head>
+
+<body>
+  <div class="login">
+    <h1>Predict Critical Shear Stress of Mobile Bed Channels </h1>
+    <br>
+    <h3>{{prediction_text}}</h3>
+    <br>
+  </div>
+  
+ <div class="login-container">
+   <div class="form">
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <div class="input-group">
+        <select name="Model" id="Model">
+          <div class="select-wrapper">
+        <option value ="0">Choose a Alogorithm</option>
+        <option value="1">Cultural Alogorithm</option>
+        <option value="2">Particle Swarm Optimization</option>
+        <option value="3">Invasive Weed Optimization</option>
+        <option value="4">Gradient Based Alogorithm</option>
+          </div>
+      </div>
+      <div class="input-group">
+    	<input type="text" name="ecc" placeholder="Gravitational Acceleration(m/s2)" required="required" />
+      </div>
+      <div class="input-group">
+        <input type="text" name="Ch" placeholder="Depth of flow(m)" required="required" />
+      </div>
+        <div class="input-group">
+		<input type="text" name="CS" placeholder="Shear Factor" required="required" />
+  </div>
+    <div class="input-group">
+    	<input type="text" name="od" placeholder="Gravitational Constant" required="required" />
+    </div>
+      <div class="input-group">
+        <input type="text" name="th" placeholder="Diameter of Particle(m)" required="required" />
+      </div>
+        <div class="input-group">
+		<input type="text" name="ys" placeholder="Kinematic Viscosity(m2/s)" required="required" />
+  </div>
+    <div class="input-group">
+    	<input type="text" name="tt" placeholder="Velocity of Flow(m/s)" required="required" />
+    </div>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict stress</button>
+    </form>
+
+   
+ </div>
+</div>
+<footer>
+    <p>This GUI is developed by Ayush Rathore, a graduate student of Dr Mahesh Patel, Department of Civil Engineering, Dr BR Ambedkar National institute of Technology, Jalandhar, India</p>
+		</footer>
+</body>
+
+</html>
+
